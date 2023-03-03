@@ -17,8 +17,10 @@ export default function AuthProvider({children}) {
                 setUser({displayName, email , uid, photoUR})
                 setIsLoading(false)
                 navigate('/')
+                return
             }
             else{
+                setIsLoading(false)
                 navigate("/login")             
             }
         })

@@ -2,19 +2,18 @@ import React, { useState } from 'react'
 import { Row,Col, Button , Typography} from 'antd'
 import { authentication } from '../firebase/config'
 import { FacebookAuthProvider, signInWithPopup } from 'firebase/auth';
-import { useNavigate  } from 'react-router-dom';
 
 export default function Login() {
     const {Title} = Typography
     const fbProvider =  new FacebookAuthProvider();
-    const handleFBLogin  = () =>{
-        signInWithPopup(fbProvider)
-        // .then((res)=>{
-        //     console.log(res)
-        // })
-        // .catch((err) =>{
-        //     console.log(err.message);
-        // })
+    const handleFBLogin  = async () =>{
+        await signInWithPopup(authentication,fbProvider)
+        .then((res)=>{
+            console.log(res)
+        })
+        .catch((err) =>{
+            console.log(err.message);
+        })
     };
   return (
     <div>

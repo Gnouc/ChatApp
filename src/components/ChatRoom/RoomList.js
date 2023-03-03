@@ -1,4 +1,5 @@
-import { Collapse, Typography } from 'antd'
+import { PlusSquareOutlined } from '@ant-design/icons/lib/icons';
+import { Button, Collapse, Typography } from 'antd'
 import React from 'react'
 import styled from 'styled-components';
 
@@ -21,14 +22,21 @@ export default function RoomList() {
         display:block;
         margin-bottom: 5px;
         color: white;
+
+        .addroom{
+            color: white;
+            padding: 0;
+
+        }
     `
   return (
     <Collapse ghost defaultActiveKey={['1']}>
-        <Panel header="Danh sách các phòng" key='1'>
+        <PannelStyle header="Danh sách các phòng" key='1'>
             <Linkstyle>Room1</Linkstyle>
             <Linkstyle>Room2</Linkstyle>
             <Linkstyle>Room3</Linkstyle>
-        </Panel>
+            <Button className='addroom' icon={<PlusSquareOutlined/>}>Thêm Phòng</Button>
+        </PannelStyle>
     </Collapse>
   )
 }
